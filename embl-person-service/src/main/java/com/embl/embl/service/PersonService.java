@@ -19,7 +19,7 @@ public interface PersonService {
 
 	List<Person> findAllPersons();
 
-	Optional<Person> deletePerson(Long Id);
+	void deletePerson(Long Id);
 
 	Person updatePerson(Person person, Long Id);
 

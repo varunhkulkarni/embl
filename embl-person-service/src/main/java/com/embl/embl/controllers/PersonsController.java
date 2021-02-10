@@ -80,9 +80,9 @@ public class PersonsController {
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Delete a single person object", notes = "Api to delete a single person object")
-	public Person deletePerson(@PathVariable Long id) {
+	public void deletePerson(@PathVariable Long id) {
 		LOGGER.info("Delete person by id - {} request handled", id);
-		return personService.deletePerson(id).orElse(null);
+		personService.deletePerson(id);
 	}
 
 	/**

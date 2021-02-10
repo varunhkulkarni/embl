@@ -51,7 +51,7 @@ class EmblApplicationTests {
 
 	@Test
 	public void testGetAllPersons() throws Exception {
-		String uri = "/v1/api/persons";
+		String uri = "/v1/persons";
 		MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON_VALUE))
 				.andReturn();
 
@@ -65,7 +65,7 @@ class EmblApplicationTests {
 
 	@Test
 	public void testSavePeson() throws Exception {
-		String uri = "/v1/api/persons";
+		String uri = "/v1/persons";
 		Person person = new Person.PersonBuilder().setAge(20).setColor("WHITE").setFirstName("Tony")
 				.setLastName("Stark").build();
 
@@ -80,7 +80,7 @@ class EmblApplicationTests {
 
 	@Test
 	public void testUpdatePeson() throws Exception {
-		String uri = "/v1/api/persons/1";
+		String uri = "/v1/persons/1";
 		Person person = new Person();
 		person.setFirstName("Lemon");
 
@@ -98,7 +98,7 @@ class EmblApplicationTests {
 
 	@Test
 	public void deletePerson() throws Exception {
-		String uri = "/v1/api/persons/2";
+		String uri = "/v1/persons/2";
 		MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri)).andReturn();
 		int status = mvcResult.getResponse().getStatus();
 		Assert.assertEquals(200, status);

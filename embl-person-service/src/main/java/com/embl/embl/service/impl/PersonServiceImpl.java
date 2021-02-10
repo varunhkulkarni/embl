@@ -57,10 +57,8 @@ public class PersonServiceImpl implements PersonService {
 	/**
 	 * To delete the persons by Id
 	 */
-	public Optional<Person> deletePerson(Long id) {
-		Optional<Person> personTodelete = getPersonById(id);
+	public void deletePerson(Long id) {
 		personRepository.deleteById(id);
-		return personTodelete;
 	}
 
 	/**
