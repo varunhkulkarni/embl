@@ -1,0 +1,49 @@
+version: '2.2'
+services:
+    embl-eureka:
+        image: 'embl/eureka-server:latest'
+        restart: always
+        volumes:
+          - /opt/workspace/nerdcode/docker/data/logs:/logs:rw
+        ports:
+          # both ports must match the port from external_url above
+          - "8761:8761"
+        mem_limit: 512m
+        mem_reservation: 256m
+        cpus: 1
+        networks:
+          microservice_network:
+            aliases:
+              - eureka-server
+    embl-person-service:
+        image: 'embl/embl-person-service:latest'
+        restart: always
+        volumes:
+          - /opt/workspace/nerdcode/docker/data/logs:/logs:rw
+        mem_limit: 256m
+        mem_reservation: 128m
+        cpus: 0.5
+        depends_on:
+          - "embl-eureka"
+        networks:
+          microservice_network:
+    embl-zuul:
+        image: 'embl/embl-zuul:latest'
+        restart: always
+        volumes:
+          - /opt/workspace/nerdcode/docker/data/logs:/logs:rw
+        ports:
+          # both ports must match the port from external_url above
+          - "8081:8081"
+        mem_limit: 256m
+        mem_reservation: 128m
+        cpus: 0.5
+        depends_on:
+          - "embl-eureka"
+          - "embl-person-service"
+        networks:
+          microservice_network:
+networks:
+  microservice_network:
+    ipam:
+      driver: default
