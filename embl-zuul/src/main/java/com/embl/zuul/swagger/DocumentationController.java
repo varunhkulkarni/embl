@@ -23,7 +23,7 @@ public class DocumentationController implements SwaggerResourcesProvider {
 		List<SwaggerResource> resources = new ArrayList<>();
 
 		routeLocator.getRoutes().forEach(route -> {
-			resources.add(swaggerResource(route.getId(), route.getFullPath().replace("**", "v2/api-docs"), "2.0"));
+			resources.add(swaggerResource(route.getId(), route.getFullPath().replace("embl-person-service", "/api/v2/api-docs"), "2.0"));
 		});
 
 		return resources;
