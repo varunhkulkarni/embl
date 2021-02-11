@@ -1,7 +1,7 @@
 version: '2.2'
 services:
     embl-eureka:
-        image: 'embl/eureka-server:latest'
+        image: 'varunhkulkarni/embl:eurekaserver'
         restart: always
         volumes:
           - /opt/workspace/nerdcode/docker/data/logs:/logs:rw
@@ -16,7 +16,7 @@ services:
             aliases:
               - eureka-server
     embl-person-service:
-        image: 'embl/embl-person-service:latest'
+        image: 'varunhkulkarni/embl:personservice'
         restart: always
         volumes:
           - /opt/workspace/nerdcode/docker/data/logs:/logs:rw
@@ -28,7 +28,7 @@ services:
         networks:
           microservice_network:
     embl-zuul:
-        image: 'embl/embl-zuul:latest'
+        image: 'varunhkulkarni/embl:zuulapi'
         restart: always
         volumes:
           - /opt/workspace/nerdcode/docker/data/logs:/logs:rw
