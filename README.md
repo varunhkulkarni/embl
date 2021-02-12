@@ -90,12 +90,12 @@ Following softwares should be installed on the computer
 
 To run the this project on docker containers :
 
-1. Copy the file : docker-compose.yml present at location onto your local machines 
+1. Copy the file : <b>docker-compose.yml</b> present at location onto your local machines 
 
   ```sh
    https://github.com/varunhkulkarni/embl/tree/main/docker-images
    ```
-2. Execute the command : 
+2. Execute the command from the location where the <b>docker-compose.yml</b> is cloned on local computer  : 
 
  ```sh
    docker-compose up &
