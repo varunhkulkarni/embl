@@ -30,10 +30,12 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#run-application-on-docker-with-pre-tagged-images">Run application on docker with pre-tagged images</a></li>
         <li><a href="#build-and-run-locally">Build and Run locally</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>        
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#docker-images">Docker Images</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -74,7 +76,7 @@ Below features are implemented in this project :
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This section will help to configure and run the project locally 
+This section will help to configure and run the project using the docker contatiners and also to locally 
 
 ### Prerequisites
 
@@ -84,6 +86,27 @@ Following softwares should be installed on the computer
 2. MAVEN
 3. DOCKER
 
+### Run application on docker with pre-tagged images
+
+To run the this project on docker containers :
+
+1. Copy the file : docker-compose.yml present at location onto your local machines 
+
+  ```sh
+   https://github.com/varunhkulkarni/embl/tree/main/docker-images
+   ```
+2. Execute the command : 
+
+ ```sh
+   docker-compose up &
+   ```
+   
+3. Access the application once its up on the below URL : 
+
+  ```sh
+  http://localhost:8081/api/swagger-ui.html#/API_for_Persons
+  ```
+  
 ### Build and Run locally
 
 Follow the below steps to build and run locally the project 
@@ -128,7 +151,7 @@ Follow the below steps to build and run locally the project
   docker-compose up --scale embl-person-service=3
   ```
   
- <!-- USAGE EXAMPLES -->
+ <!-- USAGE -->
 ## Usage
 
 This section will help to query differnt URLs to use the API that we have started with the above code
@@ -143,6 +166,14 @@ This section will help to query differnt URLs to use the API that we have starte
 
   ```sh
   http://localhost:8081/api/swagger-ui.html#/API_for_Persons
+  ```
+<!-- Docker Images -->
+## Docker Images
+
+Docker images for this application can be found in the docker hub repository on the below link :
+
+  ```sh
+  https://hub.docker.com/r/varunhkulkarni/embl
   ```
 
 
