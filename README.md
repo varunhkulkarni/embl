@@ -65,7 +65,7 @@ Below features are implemented in this project :
       <p>Spring Secuity is used for securing the API Gateway using basic authentication. For demo purpose 2 users are pre-configured while starting the server ( FileName :                    SpringSecurityConfig.java) </p>
 4. <strong>Scalibity</strong> -> Docker for scaling instances + Eureka Servers for load balancing
       <p>
-          The number of instances of person service can be increased by running the command <strong>"docker-compose --scale embl-person-service=3"</strong> manually. Eureka service will internally have the responsbility to load balance between the instances. In real world a thirrd party tools like AWS Auto Scaling/ Kubernetes is being used to scale up or down based on the various parameters.
+          The number of instances of person service can be increased by running the command <strong>"docker-compose --scale embl-person-service=3"</strong> manually. Eureka service will internally have the responsbility to load balance between the instances. In real world various container orchestration tools like AWS ECS / Kubernetes is being used to scale up or down based on the various parameters.
       </p>
 5. <strong>Limitation</strong> -> Netflix Zuul rate limiter [ 429 ( Too many request) response after 10 request per minute ]
     <p> Zuul rate limiter is used to limit the number of api calls using the below configs(<strong>10 requests per minute</strong>) :
